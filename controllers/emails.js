@@ -5,7 +5,7 @@ const sendEmail = async (req, res = response) => {
   try {
     const { name, email, message } = req.body;
     await transporter.sendMail({
-      from: `"${name}" <${email}>`, // sender address
+      from: `"${name + " " + email}" <${process.env.USER}>`, // sender address
       to: `${process.env.USER}`, // list of receivers
       subject: `Posible Propuesta de Trabajo 🔥`, // Subject line
       text: message, // plain text body
